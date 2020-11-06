@@ -1,0 +1,29 @@
+[
+    {
+        "name":"Bakers World",
+        "city":"London",
+        "type":"Veg",
+        "cuisine":["Italian"]
+    },
+    {
+        "name":"King Beef",
+        "city":"NYC",
+        "type":"NonVeg",
+        "cuisine":["American"]
+
+    },
+    {
+        "name":"Desi Indian",
+        "city":"Bangalore",
+        "type":"Veg",
+        "cuisine":["Indian"]
+
+    },
+    {
+        "name":"Kang Poui Chicken",
+        "city":"Tokyo",
+        "type":"NonVeg",
+        "cuisine":["Japanese"]
+
+    }
+]
