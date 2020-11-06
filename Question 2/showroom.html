@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+ Welcome Customer, Please Select from the various Options of Electronics
+</br>
+<select name="device" id="mydevice" onclick="selectDevice()">
+<option value="select">--select--</option>
+<option value="Laptop">Laptop</option>
+<option value="Mobile">Mobile</option>
+<option value="TV">TV</option>
+</select>
+<div style="background-color:greenyellow;" id="mydiv"></div>
+
+<script>
+    function selectDevice(){
+    arrl1 = 'MSI~Acer~Dell~Lenovo~MacBook';
+    lap = arrl1.split('~').join(" <br> ");
+    arrt2 = 'Bravia~LG~Mi~Onida';
+    tev = arrt2.split('~').join(" <br> ");
+    arrm3 = 'One plus~SamSung~Pixel~IPhone';
+    mob = arrm3.split('~').join(" <br> ");
+    var sel = document.getElementById("mydevice");
+    if(sel.value == 'Laptop'){
+    document.getElementById("mydiv").innerHTML=lap;
+     }else if(sel.value == 'TV'){
+    document.getElementById("mydiv").innerHTML=tev;
+     }else if(sel.value == 'Mobile'){
+    document.getElementById("mydiv").innerHTML=mob;
+     }else{
+    document.getElementById("mydiv").innerHTML="";
+     }
+     }
+</script>
+</body>
+</html>
