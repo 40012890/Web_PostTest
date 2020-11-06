@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel-Picker</title>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+   
+</head>
+<style>
+    .cent {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+h2{
+    text-align: center;
+    text-underline-position: below;
+    text-decoration: double;
+}
+
+</style>
+<body>
+    <div class="cent">
+    <h2>Welcome to Hotel Picker</h2>
+    <input type="button" value="List The Hotels" id="button1"><br><br>
+    <input type="text" id="city"> <br><br>
+    <input type="button" id="button2" value="Search Hotels via City"><br><br>
+    
+    Cuisine Type: <br>
+    <select name="Typecuisine" id="cuisine">
+        <option value="select">--select--</option>
+        <option value="IN">Indian</option>
+        <option value="AM">American</option>
+        <option value="JP">Japanese</option>
+        <option value="IT">Italian</option>
+    </select>
+    <input type="button" id="button4" value="Search by cuisine"><br><br>
+
+    Food Type: <br>
+    <select name="TypeFood" id="food">
+        <option value="select">--select--</option>
+        <option value="Non Veg">Non Veg</option>
+        <option value="Veg">Veg</option>
+    </select>
+    <input type="button" id="button3" value="Search  by food"><br><br>
+
+</div>
+    <div id="mydiv" ></div>
+
+
+    <script>
+        $(document).ready(function(){
+            $("#button1").click(function(){
+                var url = "http://localhost:5500/hotels";
+                $.get(url, function(data, status){
+                    data.forEach(hotel => {
+                        var str='';
+                        for(const prob in hotel){
+                            str+=prob+' '+hotel[prob]+' '+'<br>';
+                        }
+                        $('#mydiv').append(str).append('<br>');
+                    });
+                })
+            });
+
+            $("#button2").click(function(){
+                var url="http://localhost:5500/byCity";
+                var citychoice = $('#city').val();
+                $.get(url,{city:citychoice}, function(data, status){
+                    data.forEach(hotel=>{
+                    var str='';
+                        for(const prob in hotel){
+                            str+=prob+' '+hotel[prob]+' '+'<br>';
+                        }
+                        $('#mydiv').append(str).append('<br>');
+                    })
+                });
+            });
+
+            $("#button3").click(function(){
+                var url="http://localhost:5500/showByType";
+                var citychoice = $('#type').val();
+                $.get(url,{type:typechoice}, function(data, status){
+                    data.forEach(hotel=>{
+                    var str='';
+                        for(const prob in hotel){
+                            str+=prob+' '+hotel[prob]+' '+'<br>';
+                        }
+                        $('#mydiv').append(str).append('<br>');
+                    })
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
